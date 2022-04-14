@@ -1,32 +1,33 @@
-const initialState = [];
+import fetchMissions from '../../apiData/getMissionsApi';
 
-const GET_DATA_MISSIONS = 'GET_DATA_MISSIONS';
+const MISSIONS = 'redux/actions/get_missions';
 
-export const getMissionData = () => async (dispatch) => {
-  const response = await fetch('https://api.spacexdata.com/v3/missions', {
-    method: 'GET',
-  });
+const getMissionsAction = (missions) => ({
+  type: MISSIONS,
+  payload: missions,
+});
 
-  const responseJSON = await response.json();
-  const data = responseJSON.map((mission) => (
-    {
+export const getMissionsData = () => (dispach) => {
+  fetchMissions().then((data) => {
+    const missions = data.map((mission) => ({
       id: mission.mission_id,
       name: mission.mission_name,
       description: mission.description,
-    }
-  ));
-  dispatch({
-    type: GET_DATA_MISSIONS,
-    payload: data,
+      urlWiki: mission.wikipedia,
+      urlOwn: mission.website,
+      reserved: false,
+    }));
+    dispach(getMissionsAction(missions));
   });
 };
 
-const missionsReducer = (state = initialState, action) => {
+const missionsReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_DATA_MISSIONS:
-      return [...state, action.payload];
+    case MISSIONS:
+      return action.payload;
     default:
       return state;
   }
 };
+
 export default missionsReducer;
