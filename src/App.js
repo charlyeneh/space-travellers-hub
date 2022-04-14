@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from './components/Header';
 import Missions from './components/missions/missions';
-import { getMissionData } from './redux/missions/missions';
+import { getMissionsData } from './redux/missions/missions';
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getMissionData());
+    dispatch(getMissionsData());
   }, []);
   return (
     <Router>
