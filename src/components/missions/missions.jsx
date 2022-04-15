@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMissionsData } from '../../redux/missions/missions';
+import { getMissionsData, joinMissionAction } from '../../redux/missions/missions';
 import './missions.css';
 
-let loadOance = false;
+let loadOnce = false;
 
 const Missions = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer);
   useEffect(() => {
-    if (!loadOance) {
+    if (!loadOnce) {
       dispatch(getMissionsData());
-      loadOance = true;
+      loadOnce = true;
     }
   }, [dispatch]);
 
@@ -34,34 +34,44 @@ const Missions = () => {
             </th>
           </tr>
         </thead>
-        <tbody>
-          {missions.map(({
-            id, name, description, reserved,
-          }) => (
-            <tr key={id}>
-              <td className="missions-name">
-                <h1>{name}</h1>
-              </td>
-              <td className="missions-description">
-                <p>{description}</p>
-              </td>
-              <td>
-                {reserved ? (
-                  <span className="badge badge--primary">ACTIVE MEMBER</span>
-                ) : (
-                  <span className="badge badge--secondary">NOT A MEMBER</span>
-                )}
-              </td>
-              <td>
-                {reserved ? (
-                  <span className="app-btn-danger">Leave Mission</span>
-                ) : (
-                  <span className="app-btn-danger">Join Mission</span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        {missions.map(({
+          id, name, description, reserved,
+        }) => (
+          <tr key={id}>
+            <td className="missions-name">
+              <h1>{name}</h1>
+            </td>
+            <td className="missions-description">
+              <p>{description}</p>
+            </td>
+            <td>
+              {reserved ? (
+                <span className="badge badge--primary">ACTIVE MEMBER</span>
+              ) : (
+                <span className="badge badge--secondary">NOT A MEMBER</span>
+              )}
+            </td>
+            <td>
+              {reserved ? (
+                <button
+                  type="button"
+                  onClick={() => dispatch(joinMissionAction(id))}
+                  className="app-btn-danger"
+                >
+                  Leave Mission
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => dispatch(joinMissionAction(id))}
+                  className="app-btn-ghost"
+                >
+                  Join Mission
+                </button>
+              )}
+            </td>
+          </tr>
+        ))}
       </table>
     </div>
   );

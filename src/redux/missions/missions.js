@@ -1,10 +1,16 @@
 import fetchMissions from '../../apiData/getMissionsApi';
 
 const MISSIONS = 'redux/actions/get_missions';
+const JOIN_MISSION = 'redux/actions/join_mission';
 
 const getMissionsAction = (missions) => ({
   type: MISSIONS,
   payload: missions,
+});
+
+export const joinMissionAction = (missionID) => ({
+  type: JOIN_MISSION,
+  payload: missionID,
 });
 
 export const getMissionsData = () => (dispach) => {
@@ -25,6 +31,10 @@ const missionsReducer = (state = [], action) => {
   switch (action.type) {
     case MISSIONS:
       return action.payload;
+    case JOIN_MISSION:
+      return state.map((mission) => (mission.id === action.payload
+        ? { ...mission, reserved: !mission.reserved }
+        : { ...mission }));
     default:
       return state;
   }
