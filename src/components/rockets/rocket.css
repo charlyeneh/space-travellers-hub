@@ -1,0 +1,20 @@
+.rocket {
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.rocket-img {
+  width: 20rem;
+}
+
+.rocket-name {
+  margin-bottom: 1rem;
+}
+
+.rocket-description {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
