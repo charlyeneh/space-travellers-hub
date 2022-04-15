@@ -2,3 +2,13 @@
   margin: 0;
   padding: 0;
 }
+
+.card {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 200px;
+  margin-right: 2rem;
+}

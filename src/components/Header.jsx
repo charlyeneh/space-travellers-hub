@@ -12,7 +12,7 @@ const Header = () => (
       </Link>
       <nav className="header-nav">
         <ul>
-          <li><NavLink to="/rockets">Rockets</NavLink></li>
+          <li><NavLink to="/">Rockets</NavLink></li>
           <li><NavLink to="/dragons">Dragons</NavLink></li>
           <li><NavLink to="/missions">Missions</NavLink></li>
           <li><NavLink to="/profile">My Profile</NavLink></li>
