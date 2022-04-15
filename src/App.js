@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import Header from './components/Header';
 import Rockets from './components/Rockets';
 import Missions from './components/missions/missions';
-import Profile from './components/profile/Profile';
-
+import Profile from './components/profile/profile';
 import { getMissionsData } from './redux/missions/missions';
 
 const App = () => {
