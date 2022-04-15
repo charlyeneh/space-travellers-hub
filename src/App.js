@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import Header from './components/Header';
 import Rockets from './components/Rockets';
 import Missions from './components/missions/missions';
+import Profile from './components/profile/Profile';
+
 import { getMissionsData } from './redux/missions/missions';
 
 const App = () => {
@@ -19,7 +21,7 @@ const App = () => {
         <Route path="/rockets" element={<Rockets />} />
         <Route path="/dragons" element={<h1>dragons</h1>} />
         <Route path="/missions" element={<Missions />} />
-        <Route path="/profile" element={<h1>profile</h1>} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
