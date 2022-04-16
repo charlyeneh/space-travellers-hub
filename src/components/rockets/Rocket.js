@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { toggleReserved } from '../redux/rockets/rockets';
 import Styles from './Styles/Rocket.module.css';
+import { toggleReserved } from '../../redux/rockets/rockets';
 
 const divContainerStyle = {
   padding: '1rem',

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { getRocketList } from '../../redux/rockets/rockets';
 import Rocket from './Rocket';
-import { getRocketList } from '../redux/rockets/rockets';
 
 const Rockets = () => {
   const rocketList = useSelector((state) => state.rocketReducer, shallowEqual);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getRocketList());
+    dispatch(getRocketList);
   }, []);
 
   return (
