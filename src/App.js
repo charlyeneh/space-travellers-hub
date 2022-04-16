@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Missions from './components/missions/missions';
-import Profile from './components/profile/Profile';
+// import Profile from './components/profile/profile';
 import Rockets from './components/rockets/Rockets';
 import Navbar from './components/Header';
 import './App.css';
@@ -19,7 +19,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Rockets />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/missions" element={<Missions />} />
       </Routes>
     </div>
