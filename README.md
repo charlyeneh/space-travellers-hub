@@ -78,7 +78,7 @@ This makes the app ready to be deployed!
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give a ⭐️ if you like this project
 
 ## Acknowledgments 🤝
 
