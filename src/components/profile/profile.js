@@ -3,17 +3,22 @@ import Component from './component';
 import './profile.css';
 
 const Profile = () => {
-  const rockets = useSelector((state) => state.rocketsReducer);
+  const rockets = useSelector((state) => state.rocketReducer);
   const missions = useSelector((state) => state.missionsReducer);
-  const activeRockets = rockets.filter((rocket) => rocket.reserved === true);
-  const activeMissions = missions.filter(
-    (mission) => mission.reserved === true,
-  );
-
   return (
     <div className="reservations">
-      <Component reservations={activeMissions} object="Missions" />
-      <Component reservations={activeRockets} object="Rockets" />
+      <Component
+        reservations={missions.filter((mission) => mission.reserved === true)}
+        object="Missions"
+        message="No missions joined"
+        type="mission"
+      />
+      <Component
+        reservations={rockets.filter((rocket) => rocket.reserved === true)}
+        object="Rockets"
+        message="No rockets reserved"
+        type="rocket"
+      />
     </div>
   );
 };
