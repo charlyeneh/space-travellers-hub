@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import Rocket from './rocket';
-import { getRocketList } from '../../redux/rockets/rockets';
-import './rockets.css';
+import Rocket from './Rocket';
+import { getRocketList } from '../redux/rockets/rockets';
 
 const Rockets = () => {
   const rocketList = useSelector((state) => state.rocketReducer, shallowEqual);
@@ -12,7 +11,7 @@ const Rockets = () => {
   }, []);
 
   return (
-    <div className="rockets">
+    <div>
       {rocketList.map((rocket) => (
         <Rocket
           image={rocket.images[0]}
