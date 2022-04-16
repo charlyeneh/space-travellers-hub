@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import Component from './component';
+
 import './profile.css';
 
 const Profile = () => {
