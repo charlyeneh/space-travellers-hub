@@ -11,7 +11,7 @@ const Rockets = () => {
   }, []);
 
   return (
-    <div>
+    <div data-testid="rockets">
       {rocketList.map((rocket) => (
         <Rocket
           image={rocket.images[0]}
@@ -23,6 +23,7 @@ const Rockets = () => {
         />
       ))}
     </div>
+
   );
 };
 
