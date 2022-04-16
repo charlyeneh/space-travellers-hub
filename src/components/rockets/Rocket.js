@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import Styles from './Styles/Rocket.module.css';
+// import './rocket.css';
 import { toggleReserved } from '../../redux/rockets/rockets';
 
 const divContainerStyle = {

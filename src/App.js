@@ -1,26 +1,30 @@
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-// import Rockets from './components/rockets/rockets';
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Missions from './components/missions/missions';
 import Profile from './components/profile/profile';
-// import { getMissionsData } from './redux/missions/missions';
-import './App.css';
 import Rockets from './components/rockets/Rockets';
+import Navbar from './components/Header';
+import './App.css';
+import { getRocketList } from './redux/rockets/rockets';
 
-const App = () => (
-  <div className="App">
-    <Header />
-    <main className="main-app">
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRocketList());
+  }, []);
+
+  return (
+    <div className="App">
+      <Navbar />
       <Routes>
-        {/* <Route path="/" element={<h1>Hello Project!</h1>} /> */}
-        {/* <Route path="/" element={<Rockets />} /> */}
-        <Route path="/" element={<Rockets />} />
-        <Route path="/dragons" element={<h1>dragons</h1>} />
-        <Route path="/missions" element={<Missions />} />
+        <Route exact path="/" element={<Rockets />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/missions" element={<Missions />} />
+        {/* <Route path="/dragons" element={<Dragons />} /> */}
       </Routes>
-    </main>
-  </div>
-);
+    </div>
+  );
+};
 
 export default App;
