@@ -1,0 +1,7 @@
+.reservations {
+  display: flex;
+  justify-content: space-between;
+  width: 92%;
+  gap: 2rem;
+  margin-left: 2rem;
+}
