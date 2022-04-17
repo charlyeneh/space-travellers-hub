@@ -3,7 +3,6 @@ import MissionBtn from '../buttons/missionBtn';
 import RocketBtn from '../buttons/rocketBtn';
 import './component.css';
 
-// const Component = ({ reservations, object }) => (
 const Component = ({
   reservations, object, message, type,
 }) => (

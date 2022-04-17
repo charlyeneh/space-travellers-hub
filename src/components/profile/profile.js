@@ -5,6 +5,7 @@ import './profile.css';
 const Profile = () => {
   const rockets = useSelector((state) => state.rocketReducer);
   const missions = useSelector((state) => state.missionsReducer);
+  const dragons = useSelector((state) => state.dragonReducer);
   return (
     <div className="reservations">
       <Component
@@ -17,6 +18,12 @@ const Profile = () => {
         reservations={rockets.filter((rocket) => rocket.reserved === true)}
         object="Rockets"
         message="No rockets reserved"
+        type="rocket"
+      />
+      <Component
+        reservations={dragons.filter((dragon) => dragon.reserved === true)}
+        object="Dragons"
+        message="No dragons reserved"
         type="rocket"
       />
     </div>
